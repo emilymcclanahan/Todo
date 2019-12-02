@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './NewTodo.css';
-import NewTodo from './NewTodo';
 
 class NewTodo extends Component {
   render() {
