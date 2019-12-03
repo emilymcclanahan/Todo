@@ -3,7 +3,7 @@ import './Todo.css';
 
 class Todo extends Component {
   // completeTodo(event) {
-  //   this.completeTodo() {}
+  //   this.completeTodo() {} = completeTodo.todoId;
   // }
   render() {
     return (

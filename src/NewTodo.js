@@ -8,7 +8,6 @@ class NewTodo extends Component {
         <form id="form">
           <input id="textInput" type="text" placeholder="Click to add ToDo" />
           <button onClick={this.props.renderTodo}><i className="fas fa-plus-circle"></i></button>
-          <button onClick={this.props.sortTodos}><i className="fas fa-sort"></i></button>
         </form>
       </div>
     );

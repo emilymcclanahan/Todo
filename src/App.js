@@ -42,7 +42,7 @@ renderTodo(event) {
   createRequest.onreadystatechange = function() {
     if (this.readyState === 4 && this.status === 200) {
         var todo = (JSON.parse(this.responseText));
-        self.setState({todos: [...self.state.todos, JSON.parse(this.responseText)]});
+        self.setState({todos: [...self.state.todos, JSON.parse(this.responseText)]})
         self.setState({input: ''});
     }
     else if (this.readyState === 4) {
@@ -80,7 +80,7 @@ completeTodo(event) {
   completeRequest.send(JSON.stringify(data));
 }
 sortTodos(event) {
-  var todos = this.state.todos;
+  const todos = this.state.todos;
   todos.sort(function (a, b) {
     return a.text.localeCompare(b.text);
   })
@@ -182,6 +182,7 @@ sortTodos(event) {
         <h1>ToDo List</h1>
         <ul>
           <NewTodo renderTodo={this.renderTodo}/>
+          <button id="sortButton" onClick={this.sortTodos}><i className="fas fa-sort"></i></button>
           {this.state.todos.map((todo)=>
           <Todo
             key={todo.id}
@@ -192,6 +193,7 @@ sortTodos(event) {
             completed={this.completeTodo}
             deleted={this.deleteTodo}
           />)}
+
         </ul>
       </div>
     );

@@ -42,15 +42,14 @@ input[type=text] {
   padding-left: 6px;
   color: lightgray;
   border: none;
-}
-form {
-  margin-bottom: 25px;
+  float: left;
 }
 #todos button {
   color: orange;
   background-color: white;
   font-size: 30px;
   border: none;
+  float: left;
 }
 p{
   display: inline-block;
@@ -87,7 +86,7 @@ p{
   color: lightgrey;
   font-size: 23px;
   position: absolute;
-  right: 20.5%;
+  right: 21%;
   z-index: -1;
 }
 .fa-trash-alt:hover {
@@ -102,7 +101,14 @@ p{
   background-color: transparent;
   height: 25px;
   width: 28px;
+  border: none;
 }
 ul {
   padding: 0;
+}
+#sortButton {
+  color: orange;
+  font-size: 30px;
+  border: none;
+  margin-bottom: 25px;
 }
