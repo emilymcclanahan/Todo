@@ -59,27 +59,28 @@ p{
   padding-left: 42px;
 }
 .fa-check-circle {
+  color: orange;
   visibility: hidden;
   position: absolute;
   font-size: 23px;
-  left: -1px;
+  left: 0px;
   top: 0;
 }
-#todos .todo .check{
+.check {
   height: 25px;
   width: 25px;
   position: absolute;
   border: 1px solid lightgrey;
   border-radius: 50%;
 }
-#todos .todo .check:hover, #todos .todo.completed .check{
+.check:hover, .completed .check {
   border-color: orange;
   border-width: 1.5px;
 }
-#todos .todo.completed{
+.completed {
   color: lightgray;
 }
-#todos .todo.completed .fa-check-circle{
+.completed .fa-check-circle {
  visibility: visible;
 }
 .fa-trash-alt {
@@ -92,13 +93,16 @@ p{
 .fa-trash-alt:hover {
   color: orange;
 }
-#todos .todo .delete:hover + .fa-trash-alt {
+.delete:hover + .fa-trash-alt {
   color: orange;
 }
-#todos .todo .delete{
+.delete{
   position: absolute;
   right: 20.5%;
   background-color: transparent;
   height: 25px;
   width: 28px;
+}
+ul {
+  padding: 0;
 }
