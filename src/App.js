@@ -64,14 +64,10 @@ completeTodo(event) {
   var completeRequest = new XMLHttpRequest();
   completeRequest.onreadystatechange = function() {
     if (this.readyState === 4 && this.status === 200) {
-      console.log('completeTodo if statement');
       self.setState({completed:true});
-      // event.target.parentNode.className = "completed";
     }
     else if(this.readyState === 4){
-      console.log(this.responseText)
-      console.log('completeTodo else if statement');
-      console.log(todoId);
+      console.log(this.responseText);
     }
   };
   completeRequest.open("PUT", "https://cse204.work/todos/" + todoId, true);
