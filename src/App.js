@@ -6,11 +6,12 @@ import NewTodo from './NewTodo';
 class App extends Component {
   constructor() {
     super()
-    this.state = {todos:[], input:""}
+    this.state = {todos:[], input:''}
     this.renderTodo = this.renderTodo.bind(this);
     this.deleteTodo = this.deleteTodo.bind(this);
     this.completeTodo = this.completeTodo.bind(this);
     this.sortTodos = this.sortTodos.bind(this);
+    this.onChange = this.onChange.bind(this);
   }
   onChange(event) {
     this.setState({input: event.target.value});
@@ -113,7 +114,7 @@ deleteTodo(event) {
       <div className="App">
         <h1>ToDo List</h1>
         <ul>
-          <NewTodo renderTodo={this.renderTodo}/>
+          <NewTodo renderTodo={this.renderTodo} onChange={this.onChange} input={this.state.input}/>
           <button id="sortButton" onClick={this.sortTodos}><i className="fas fa-sort"></i></button>
           {this.state.todos.map((todo)=>
           <Todo

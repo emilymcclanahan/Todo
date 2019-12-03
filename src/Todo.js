@@ -5,11 +5,17 @@ class Todo extends Component {
   // completeTodo(event) {
   //   this.completeTodo() {} = completeTodo.todoId;
   // }
-
+  // var className = "todo";
+  //  if (this.state.completed) {
+  //    className = "todo completed";
+  //  }
+  //  return(
+  //    <div className={className}> TODO GOES HERE </div>
+  //  );
   render() {
     var className = "todo";
     if (this.props.completed) {
-      className = "completed";
+      className = "todo completed";
     }
     return (
       <li id={this.props.id} className={className}>

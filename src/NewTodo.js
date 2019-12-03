@@ -6,7 +6,7 @@ class NewTodo extends Component {
     return (
       <div id="todos">
         <form id="form">
-          <input id="textInput" type="text" placeholder="Click to add ToDo" />
+          <input onChange={this.props.onChange} id="textInput" type="text" placeholder="Click to add ToDo" />
           <button onClick={this.props.renderTodo}><i className="fas fa-plus-circle"></i></button>
         </form>
       </div>
