@@ -89,7 +89,6 @@ deleteTodo(event) {
   var deleteRequest = new XMLHttpRequest();
   deleteRequest.onreadystatechange = function () {
   if (this.readyState === 4 && this.status === 200) {
-    console.log('deleteTodo if statement');
     const remainingTodos = self.state.todos.filter((todo) => {
             if (todo.id !== todoId) {
               return todo;
@@ -100,7 +99,6 @@ deleteTodo(event) {
           });
         }
         else if (this.readyState === 4) {
-          console.log('deleteTodo else if statement');
           console.log(this.responseText);
         }
       };
