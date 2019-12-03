@@ -64,9 +64,9 @@ completeTodo(event) {
   var completeRequest = new XMLHttpRequest();
   completeRequest.onreadystatechange = function() {
     if (this.readyState === 4 && this.status === 200) {
-      console.log('deleteTodo if statement');
+      console.log('completeTodo if statement');
       self.setState({completed:true});
-      event.target.parentNode.className = "completed";
+      // event.target.parentNode.className = "completed";
     }
     else if(this.readyState === 4){
       console.log(this.responseText)
@@ -126,10 +126,9 @@ deleteTodo(event) {
             text={todo.text}
             completed={todo.completed}
             created={todo.created}
-            completTodo={this.completeTodo}
+            completeTodo={this.completeTodo}
             deleteTodo={this.deleteTodo}
           />)}
-
         </ul>
       </div>
     );

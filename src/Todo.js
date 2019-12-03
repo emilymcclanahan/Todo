@@ -9,7 +9,7 @@ class Todo extends Component {
   render() {
     var className = "todo";
     if (this.props.completed) {
-      className = "todo completed";
+      className = "completed";
     }
     return (
       <li id={this.props.id} className={className}>
