@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/09-todo-react-emilymcclanahan/precache-manifest.4496f90a6ba8e9d8f9dbffff04b3d8a6.js"
+  "/09-todo-react-emilymcclanahan/precache-manifest.7a126c6f53ef1fc599a11ae4b3a8bfed.js"
 );
 
 workbox.clientsClaim();
