@@ -9,7 +9,7 @@ class App extends Component {
     this.state = {todos:[]}
     this.renderTodo = this.renderTodo.bind(this);
     this.deleteTodo = this.deleteTodo.bind(this);
-    // this.completeTodo = this.completeTodo.bind(this);
+    this.completeTodo = this.completeTodo.bind(this);
     this.sortTodos = this.sortTodos.bind(this);
   }
   onChange(event) {
@@ -54,31 +54,31 @@ renderTodo(event) {
   createRequest.setRequestHeader("x-api-key", "ae8aff-365e6b-bdef44-3bde7a-c9c92d");
   createRequest.send(JSON.stringify(data));
 }
-// completeTodo(event) {
-//   var todoId = event.target.parentNode.id;
-//   const self = this;
-//   var data = {
-//     completed: true
-//   };
-//   var complete = event.target.parentNode;
-//   var completeRequest = new XMLHttpRequest();
-//   completeRequest.onreadystatechange = function() {
-//     if (this.readyState === 4 && this.status === 200) {
-//       console.log('deleteTodo if statement');
-//       self.setState({completed:true});
-//       event.target.parentNode.className = "completed";
-//     }
-//     else if(this.readyState === 4){
-//       console.log(this.responseText)
-//       console.log('completeTodo else if statement');
-//       console.log(todoId);
-//     }
-//   };
-//   completeRequest.open("PUT", "https://cse204.work/todos/" + todoId, true);
-//   completeRequest.setRequestHeader("Content-type", "application/json");
-//   completeRequest.setRequestHeader("x-api-key", "ae8aff-365e6b-bdef44-3bde7a-c9c92d");
-//   completeRequest.send(JSON.stringify(data));
-// }
+completeTodo(event) {
+  var todoId = event.target.parentNode.id;
+  const self = this;
+  var data = {
+    completed: true
+  };
+  var complete = event.target.parentNode;
+  var completeRequest = new XMLHttpRequest();
+  completeRequest.onreadystatechange = function() {
+    if (this.readyState === 4 && this.status === 200) {
+      console.log('deleteTodo if statement');
+      self.setState({completed:true});
+      event.target.parentNode.className = "completed";
+    }
+    else if(this.readyState === 4){
+      console.log(this.responseText)
+      console.log('completeTodo else if statement');
+      console.log(todoId);
+    }
+  };
+  completeRequest.open("PUT", "https://cse204.work/todos/" + todoId, true);
+  completeRequest.setRequestHeader("Content-type", "application/json");
+  completeRequest.setRequestHeader("x-api-key", "ae8aff-365e6b-bdef44-3bde7a-c9c92d");
+  completeRequest.send(JSON.stringify(data));
+}
 sortTodos(event) {
   var todos = this.state.todos;
   todos.sort(function (a, b) {
