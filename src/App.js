@@ -6,7 +6,7 @@ import NewTodo from './NewTodo';
 class App extends Component {
   constructor() {
     super()
-    this.state = {todos:[]}
+    this.state = {todos:[], input:""}
     this.renderTodo = this.renderTodo.bind(this);
     this.deleteTodo = this.deleteTodo.bind(this);
     this.completeTodo = this.completeTodo.bind(this);
@@ -86,78 +86,14 @@ sortTodos(event) {
   })
   this.setState({todos: todos});
 }
-
-    // document.getElementById("form").addEventListener("submit", function(event) {
-    //     event.preventDefault();
-    //   var data = {
-    //     text: textInput.value
-    //   }
-    //   var createRequest = new XMLHttpRequest();
-    //   createRequest.onreadystatechange = function() {
-    //     if (this.readyState == 4 && this.status == 200) {
-    //         renderTodo(JSON.parse(this.responseText));
-    //     }
-    //     else if (this.readyState == 4) {
-    //       console.log(this.responseText);
-    //     }
-    //   };
-    //   createRequest.open("POST", "https://cse204.work/todos", true);
-    //   createRequest.setRequestHeader("Content-type", "application/json");
-    //   createRequest.setRequestHeader("x-api-key", ae8aff-365e6b-bdef44-3bde7a-c9c92d);
-    //   createRequest.send(JSON.stringify(data));
-    // });
-    // function renderTodo(todoData) {
-    //   var todo = document.createElement("li");
-    //   todo.setAttribute("id", todoData.id);
-    //   todo.classList.add("todo");
-    //   if (todoData.completed){
-    //    todo.classList.add("completed");
-    //   }
-    //   var completeButton = document.createElement("button");
-    //   completeButton.classList.add("check");
-    //   completeButton.innerHTML = '<i class="fas fa-check-circle"></i>';
-    //   completeButton.addEventListener("click", completeTodo);
-    //   var todoText = document.createElement("p");
-    //   todoText.innerText = todoData.text;
-    //   var deleteButton = document.createElement("button");
-    //   deleteButton.classList.add("delete");
-    //   var trash = document.createElement("i");
-    //   trash.className = "fas fa-trash-alt";
-    //   deleteButton.addEventListener("click", deleteTodo);
-    //   todo.appendChild(completeButton);
-    //   todo.appendChild(todoText);
-    //   todo.appendChild(deleteButton);
-    //   todo.appendChild(trash);
-    //   document.getElementById("todos").appendChild(todo);
-    //   document.getElementById("textInput").value = "";
-    // }
-    // function completeTodo(event) {
-    //   var todoId = event.target.parentNode.id;
-    //   var data = {
-    //     completed: true
-    //   };
-    //   var completeRequest = new XMLHttpRequest();
-    //   completeRequest.onreadystatechange = function() {
-    //     if (this.readyState == 4 && this.status == 200) {
-    //       event.target.parentNode.classList.add("completed");
-    //     }
-    //     else if(this.readyState == 4){
-    //       console.log(this.responseText);
-    //     }
-    //   }
-    //   completeRequest.open("PUT", "https://cse204.work/todos/" + todoId, true);
-    //   completeRequest.setRequestHeader("Content-type", "application/json");
-    //   completeRequest.setRequestHeader("x-api-key", ae8aff-365e6b-bdef44-3bde7a-c9c92d);
-    //   completeRequest.send(JSON.stringify(data));
-    // }
-    deleteTodo(event) {
-      var todoId = event.target.parentNode.id;
-      var self = this;
-      var deleteRequest = new XMLHttpRequest();
-      deleteRequest.onreadystatechange = function () {
-        if (this.readyState === 4 && this.status === 200) {
-          console.log('deleteTodo if statement');
-          const remainingTodos = self.state.todos.filter((todo) => {
+deleteTodo(event) {
+  var todoId = event.target.parentNode.id;
+  var self = this;
+  var deleteRequest = new XMLHttpRequest();
+  deleteRequest.onreadystatechange = function () {
+  if (this.readyState === 4 && this.status === 200) {
+    console.log('deleteTodo if statement');
+    const remainingTodos = self.state.todos.filter((todo) => {
             if (todo.id !== todoId) {
               return todo;
             }
@@ -190,8 +126,8 @@ sortTodos(event) {
             text={todo.text}
             completed={todo.completed}
             created={todo.created}
-            completed={this.completeTodo}
-            deleted={this.deleteTodo}
+            completTodo={this.completeTodo}
+            deleteTodo={this.deleteTodo}
           />)}
 
         </ul>
