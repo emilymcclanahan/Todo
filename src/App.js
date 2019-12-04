@@ -14,6 +14,7 @@ class App extends Component {
     this.onChange = this.onChange.bind(this);
   }
   onChange(event) {
+    event.preventDefault();
     this.setState({input: event.target.value});
   }
   componentDidMount() {
@@ -43,8 +44,7 @@ renderTodo(event) {
   createRequest.onreadystatechange = function() {
     if (this.readyState === 4 && this.status === 200) {
         var todo = (JSON.parse(this.responseText));
-        self.setState({todos: [...self.state.todos, JSON.parse(this.responseText)]})
-        self.setState({input: ''});
+        self.setState({todos: [...self.state.todos, JSON.parse(this.responseText)], input: ''})
     }
     else if (this.readyState === 4) {
       console.log(this.responseText);
@@ -65,6 +65,11 @@ completeTodo(event) {
   var completeRequest = new XMLHttpRequest();
   completeRequest.onreadystatechange = function() {
     if (this.readyState === 4 && this.status === 200) {
+      console.log(JSON.parse(this.responseText))
+      //initialize an array and set it to be this.state.todos
+      //loop through it to find the todo with exact same id
+      //If the id equals, set the completed status of that todo to be true
+      //call this.setState({todos : newtodo you initialized above })
       self.setState({completed:true});
     }
     else if(this.readyState === 4){
