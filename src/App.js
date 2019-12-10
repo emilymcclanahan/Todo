@@ -67,9 +67,12 @@ completeTodo(event) {
     if (this.readyState === 4 && this.status === 200) {
       console.log(JSON.parse(this.responseText))
       //initialize an array and set it to be this.state.todos
+      // var newArray = [...todos]
       //loop through it to find the todo with exact same id
+
       //If the id equals, set the completed status of that todo to be true
       //call this.setState({todos : newtodo you initialized above })
+      // this.setState({todos:newArray})
       self.setState({completed:true});
     }
     else if(this.readyState === 4){
